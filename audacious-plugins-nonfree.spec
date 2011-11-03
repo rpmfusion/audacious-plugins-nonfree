@@ -1,10 +1,10 @@
 %global aud_plugin_api %(grep '[ ]*#define[ ]*_AUD_PLUGIN_VERSION[ ]\\+' %{_includedir}/audacious/plugin.h 2>/dev/null | sed 's!.*_AUD_PLUGIN_VERSION[ ]*\\([0-9]\\+\\).*!\\1!')
 %if 0%{aud_plugin_api} > 0
-%global aud_plugin_dep Requires: audacious(plugin-api) = %{aud_plugin_api}
+%global aud_plugin_dep Requires: audacious(plugin-api)%{?_isa} = %{aud_plugin_api}
 %endif
 
 Name:           audacious-plugins-nonfree
-Version:        3.0.2
+Version:        3.0.4
 Release:        1%{?dist}
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
@@ -66,12 +66,14 @@ update-desktop-database %{_datadir}/applications
 
 
 %files
-%defattr(-,root,root,-)
 %doc COPYING
 %{_libdir}/audacious/Input/sid.so
 %{_datadir}/applications/audacious-sid.desktop
 
 
 %changelog
+* Thu Nov  3 2011 Hans de Goede <j.w.r.degoede@gmail.com> 3.0.4-1
+- Upgrade to 3.0.4
+
 * Wed Sep  7 2011 Hans de Goede <j.w.r.degoede@gmail.com> 3.0.2-1
 - Initial rpmfusion package
