@@ -5,7 +5,7 @@
 
 Name:           audacious-plugins-nonfree
 Version:        3.0.4
-Release:        1%{?dist}
+Release:        1%{?dist}.1
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
 License:        GPLv3
@@ -72,7 +72,7 @@ update-desktop-database %{_datadir}/applications
 
 
 %changelog
-* Thu Nov  3 2011 Hans de Goede <j.w.r.degoede@gmail.com> 3.0.4-1
+* Fri Nov 18 2011 Hans de Goede <j.w.r.degoede@gmail.com> 3.0.4-1.fc16.1
 - Upgrade to 3.0.4
 
 * Wed Sep  7 2011 Hans de Goede <j.w.r.degoede@gmail.com> 3.0.2-1
