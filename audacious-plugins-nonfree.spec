@@ -5,7 +5,7 @@
 
 Name:           audacious-plugins-nonfree
 Version:        3.0.4
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
 License:        GPLv3
@@ -72,6 +72,9 @@ update-desktop-database %{_datadir}/applications
 
 
 %changelog
+* Thu Mar 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 3.0.4-3
+- Rebuilt for c++ ABI breakage
+
 * Thu Feb 09 2012 Nicolas Chauvet <kwizart@gmail.com> - 3.0.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
 
