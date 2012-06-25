@@ -4,13 +4,13 @@
 %endif
 
 Name:           audacious-plugins-nonfree
-Version:        3.0.4
-Release:        3%{?dist}
+Version:        3.3
+Release:        0.1.alpha1%{?dist}
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
 License:        GPLv3
 URL:            http://audacious-media-player.org/
-Source0:        http://distfiles.atheme.org/audacious-plugins-%{version}.tar.gz
+Source0:        http://distfiles.audacious-media-player.org/audacious-plugins-%{version}-alpha1.tar.bz2
 Source1:        audacious-sid.desktop
 BuildRequires:  audacious-devel >= %{version}
 BuildRequires:  zlib-devel, libxml2-devel, desktop-file-utils >= 0.9
@@ -35,7 +35,7 @@ non free dependencies.
 
 
 %prep
-%setup -q -n audacious-plugins-%{version}
+%setup -q -n audacious-plugins-%{version}-alpha1
 sed -i '\,^.SILENT:,d' buildsys.mk.in
 
 
@@ -72,6 +72,9 @@ update-desktop-database %{_datadir}/applications
 
 
 %changelog
+* Sun Jun 24 2012 Hans de Goede <j.w.r.degoede@gmail.com> - 3.3-0.1.alpha1
+- Upgrade to 3.3-alpha1
+
 * Thu Mar 08 2012 Nicolas Chauvet <kwizart@gmail.com> - 3.0.4-3
 - Rebuilt for c++ ABI breakage
 
