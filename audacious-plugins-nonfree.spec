@@ -4,15 +4,15 @@
 %endif
 
 Name:           audacious-plugins-nonfree
-Version:        3.3
-Release:        0.2.alpha1%{?dist}
+Version:        3.3.2
+Release:        1%{?dist}
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
 License:        GPLv3
 URL:            http://audacious-media-player.org/
-Source0:        http://distfiles.audacious-media-player.org/audacious-plugins-%{version}-alpha1.tar.bz2
+Source0:        http://distfiles.audacious-media-player.org/audacious-plugins-%{version}.tar.bz2
 Source1:        audacious-sid.desktop
-BuildRequires:  audacious-devel >= %{version}
+BuildRequires:  audacious-devel >= 3.3
 BuildRequires:  zlib-devel, libxml2-devel, desktop-file-utils >= 0.9
 BuildRequires:  taglib-devel >= 1.4
 BuildRequires:  gettext, libbinio-devel
@@ -34,7 +34,7 @@ non free dependencies.
 
 
 %prep
-%setup -q -n audacious-plugins-%{version}-alpha1
+%setup -q -n audacious-plugins-%{version}
 sed -i '\,^.SILENT:,d' buildsys.mk.in
 
 
@@ -71,6 +71,9 @@ update-desktop-database %{_datadir}/applications
 
 
 %changelog
+* Sun Sep 23 2012 Hans de Goede <j.w.r.degoede@gmail.com> - 3.3.2-1
+- Upgrade to 3.3.2
+
 * Mon Jun 25 2012 Hans de Goede <j.w.r.degoede@gmail.com> - 3.3-0.2.alpha1
 - Drop sidplay version 1 support, as it has been orphaned in Fedora
 
