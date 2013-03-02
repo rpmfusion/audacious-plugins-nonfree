@@ -4,22 +4,19 @@
 %endif
 
 Name:           audacious-plugins-nonfree
-Version:        3.3.2
+Version:        3.3.4
 Release:        1%{?dist}
 Summary:        Audacious media player plugins with non free dependencies
 Group:          Applications/Multimedia
 License:        GPLv3
 URL:            http://audacious-media-player.org/
 Source0:        http://distfiles.audacious-media-player.org/audacious-plugins-%{version}.tar.bz2
-Source1:        audacious-sid.desktop
 BuildRequires:  audacious-devel >= 3.3
-BuildRequires:  zlib-devel, libxml2-devel, desktop-file-utils >= 0.9
+BuildRequires:  zlib-devel, libxml2-devel
 BuildRequires:  taglib-devel >= 1.4
 BuildRequires:  gettext, libbinio-devel
 BuildRequires:  dbus-devel >= 0.60, dbus-glib-devel >= 0.60
 BuildRequires:  sidplay-libs-devel >= 2.1.1-11
-Requires(post):  desktop-file-utils >= 0.9
-Requires(postun): desktop-file-utils >= 0.9
 %{?aud_plugin_dep}
 # People who have the non free repo enabled and have the audacious sid plugin
 # installed likely will want this package's sid plugin which is compiled with
@@ -49,28 +46,19 @@ make V=1 %{?_smp_mflags} -C src/sid
 
 %install
 make -C src/sid install DESTDIR=$RPM_BUILD_ROOT
-
-desktop-file-install --vendor "" \
-    --dir $RPM_BUILD_ROOT%{_datadir}/applications   \
-    %{SOURCE1}
-
 find $RPM_BUILD_ROOT -type f -name "*.la" -exec rm -f {} ';'
-
-
-%post
-update-desktop-database %{_datadir}/applications
-
-%postun
-update-desktop-database %{_datadir}/applications
 
 
 %files
 %doc COPYING
 %{_libdir}/audacious/Input/sid.so
-%{_datadir}/applications/audacious-sid.desktop
 
 
 %changelog
+* Sat Mar  2 2013 Hans de Goede <j.w.r.degoede@gmail.com> - 3.3.4-1
+- Upgrade to 3.3.4
+- Drop .desktop files, the mimetypes have moved to the main pkg (rf#2636)
+
 * Sun Sep 23 2012 Hans de Goede <j.w.r.degoede@gmail.com> - 3.3.2-1
 - Upgrade to 3.3.2
 
